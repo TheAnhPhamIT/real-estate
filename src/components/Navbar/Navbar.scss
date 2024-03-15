@@ -6,7 +6,7 @@ nav {
   align-items: center;
   height: 100px;
 
-  a {
+  a.nav-item {
     transition: all 0.3s ease;
 
     &:hover {
@@ -24,6 +24,10 @@ nav {
     gap: 50px;
     align-items: center;
 
+    @include md {
+      gap: 30px;
+    }
+
     .logo {
       display: flex;
       gap: 10px;
@@ -37,6 +41,10 @@ nav {
       }
 
       @include sm {
+        font-size: 18px;
+        img {
+          width: 25px;
+        }
         span {
           display: initial;
         }
@@ -61,6 +69,10 @@ nav {
     justify-content: flex-end;
     align-items: center;
     padding: 20px;
+
+    @include md {
+      gap: 30px;
+    }
 
     @include md {
       background-color: transparent;
