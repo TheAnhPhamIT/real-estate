@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="left">
         <a href="/" className="logo nav-item">
           <img src="/assets/logo.png" alt="logo" />
-          <span>RealEstateApp</span>
+          <span>RealEstate</span>
         </a>
         <a className="nav-item" href="/">
           Home
