@@ -1,0 +1,72 @@
+@import "../../responsive.scss";
+
+.inputs-wrapper {
+  display: flex;
+  border: 1px solid black;
+
+  @include sm {
+    flex-direction: column;
+  }
+
+  input {
+    flex: 1;
+    border: 0;
+    padding: 20px;
+
+    @include sm {
+      border-bottom: 1px solid black;
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fece51;
+    border: none;
+    border-left: 1px solid black;
+    padding: 15px 20px;
+
+    @include sm {
+      padding: 10px;
+      border: none;
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+}
+
+form {
+  .type {
+    button {
+      padding: 12px 20px;
+      border: 1px solid black;
+      border-bottom: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:nth-child(1) {
+        border-top-left-radius: 4px;
+      }
+
+      &:nth-child(2) {
+        border-top-right-radius: 4px;
+      }
+
+      &.active {
+        background-color: black;
+        color: #fff;
+      }
+    }
+
+    button + button {
+      border-left: none;
+    }
+  }
+}
