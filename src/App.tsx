@@ -1,9 +1,12 @@
+import Navbar from "./components/Navbar/Navbar";
 import "./layout.scss";
 
 function App() {
   return (
     <div className="layout">
-      <a href="#">Home</a>
+      <div className="navbar">
+        <Navbar />
+      </div>
     </div>
   );
 }

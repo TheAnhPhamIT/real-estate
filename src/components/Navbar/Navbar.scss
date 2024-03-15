@@ -1,0 +1,81 @@
+@import "../../responsive.scss";
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+
+  a {
+    transition: all 0.3s ease;
+
+    &:hover {
+      scale: 1.05;
+    }
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  .left {
+    flex: 3;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+
+    .logo {
+      display: flex;
+      gap: 10px;
+      font-size: 20px;
+      align-items: center;
+
+      @include md {
+        span {
+          display: none;
+        }
+      }
+
+      @include sm {
+        span {
+          display: initial;
+        }
+      }
+
+      img {
+        width: 30px;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .right {
+    flex: 2;
+    background-color: #fcf5f3;
+    height: 100%;
+    display: flex;
+    gap: 50px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+
+    @include md {
+      background-color: transparent;
+    }
+
+    @include sm {
+      background-color: transparent;
+    }
+
+    a {
+      &:nth-child(2) {
+        background-color: #fece51;
+        padding: 12px 24px;
+        border-radius: 10px;
+      }
+    }
+  }
+}
