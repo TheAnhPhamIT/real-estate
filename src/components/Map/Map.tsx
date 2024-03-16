@@ -2,30 +2,39 @@ import { MapContainer, TileLayer } from "react-leaflet";
 import "./Map.scss";
 import { LatLngTuple } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { listData } from "../../lib/dummyData";
+import { Place } from "../../lib/dummyData";
 import MapMarker from "../MapMarker/MapMarker";
 
-const position = [52.4797, -1.90269] as LatLngTuple;
-const data = listData;
+type mapProps = {
+  center: LatLngTuple;
+  zoom?: number;
+  scrollWhellZoom?: boolean;
+  places?: Place[];
+};
 
-export default function Map() {
+export default function Map({
+  center,
+  zoom = 7,
+  scrollWhellZoom = false,
+  places = [],
+}: mapProps) {
   return (
     <MapContainer
-      center={position}
-      zoom={7}
-      scrollWheelZoom={false}
+      center={center}
+      zoom={zoom}
+      scrollWheelZoom={scrollWhellZoom}
       className="map"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {data.map((item) => {
+      {places.map((place) => {
         return (
           <MapMarker
-            key={item.id}
-            position={[item.latitude, item.longitude]}
-            {...item}
+            key={place.id}
+            position={[place.latitude, place.longitude]}
+            {...place}
           />
         );
       })}
