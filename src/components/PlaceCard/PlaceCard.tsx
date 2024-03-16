@@ -10,16 +10,20 @@ export default function PlaceCard({ place }: placeCardProps) {
   const navigate = useNavigate();
 
   const goToPlaceDetail = (placeId: number) => {
-    navigate(placeId);
+    navigate(`/places/${placeId}`);
   };
   return (
     <div className="place-card">
       <div className="place-img">
-        <img src={place.img} alt={place.title} />
+        <img
+          src={place.img}
+          alt={place.title}
+          onClick={() => goToPlaceDetail(place.id)}
+        />
       </div>
       <div className="infos">
-        <h2 className="title">
-          <a onClick={() => goToPlaceDetail(place.id)}>{place.title}</a>
+        <h2 className="title" onClick={() => goToPlaceDetail(place.id)}>
+          <span>{place.title}</span>
         </h2>
         <span className="address">
           <img src="/assets/pin.png" alt="location" />

@@ -3,7 +3,11 @@ import Map from "../../components/Map/Map";
 import Filter from "../../components/Filter/Filter";
 import { listData } from "../../lib/dummyData";
 import PlaceCard from "../../components/PlaceCard/PlaceCard";
+import { LatLngTuple } from "leaflet";
+
 const data = listData;
+const position = [52.4797, -1.90269] as LatLngTuple;
+
 export default function Places() {
   return (
     <div className="places">
@@ -24,7 +28,7 @@ export default function Places() {
         </div>
       </div>
       <div className="map-container">
-        <Map />
+        <Map center={position} places={listData} />
       </div>
     </div>
   );
