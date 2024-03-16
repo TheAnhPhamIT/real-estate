@@ -6,6 +6,7 @@
   background-color: transparent;
   z-index: 999;
   cursor: pointer;
+
   @include sm {
     display: block;
   }

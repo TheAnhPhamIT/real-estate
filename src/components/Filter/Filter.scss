@@ -1,0 +1,51 @@
+form.filter-form {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+
+  label {
+    font-size: 10px;
+  }
+
+  .input-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+    input,
+    select {
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+  }
+
+  .input-item.city-search {
+    width: 100%;
+    input {
+      width: 100%;
+    }
+  }
+  .inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    input,
+    select {
+      width: 100px;
+    }
+  }
+
+  .search-btn {
+    background-color: #fece51;
+    border: none;
+    width: 100px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

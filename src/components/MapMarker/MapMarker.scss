@@ -1,0 +1,19 @@
+.popup-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  img {
+    width: 60px;
+    height: 40px;
+    border-radius: 4px;
+  }
+
+  .infos {
+    display: flex;
+    flex-direction: column;
+    .title {
+      color: #0078a8;
+    }
+  }
+}
