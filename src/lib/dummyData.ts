@@ -1,3 +1,15 @@
+export type Place = {
+  id: number;
+  title: string;
+  img: string;
+  bedroom: number;
+  bathroom: number;
+  address: string;
+  latitude: number;
+  longitude: number;
+  price: number;
+};
+
 export const listData = [
   {
     id: 1,

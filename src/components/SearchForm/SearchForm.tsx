@@ -1,5 +1,6 @@
 import { FormEvent, SyntheticEvent, useState } from "react";
 import "./SearchForm.scss";
+import { useNavigate } from "react-router-dom";
 
 type searchType = "buy" | "rent";
 
@@ -17,6 +18,7 @@ export default function SearchForm() {
     maxPrice: undefined,
     minPrice: undefined,
   });
+  const navigate = useNavigate();
 
   const handleOnChange = (e: FormEvent<HTMLInputElement>) => {
     const newData = {
@@ -32,6 +34,11 @@ export default function SearchForm() {
       ...prev,
       type,
     }));
+  };
+
+  const onSearch = (e: SyntheticEvent) => {
+    e.preventDefault();
+    navigate("/places");
   };
 
   return (
@@ -75,7 +82,7 @@ export default function SearchForm() {
           placeholder="Min Price"
           onChange={handleOnChange}
         />
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn" onClick={onSearch}>
           <img src="/assets/search.png" alt="search" />
         </button>
       </div>
