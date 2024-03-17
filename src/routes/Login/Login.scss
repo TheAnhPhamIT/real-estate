@@ -1,3 +1,5 @@
+@import "../../responsive.scss";
+
 main.login-page {
   width: 100%;
   height: 100vh;
@@ -19,8 +21,12 @@ main.login-page {
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 0 20px;
+      padding: 0 30px;
       gap: 20px;
+
+      @include sm {
+        display: none;
+      }
 
       figure {
         display: flex;
@@ -36,26 +42,47 @@ main.login-page {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 0 20px;
+      padding: 0 30px;
       gap: 20px;
 
       form {
         display: flex;
-        gap: 10px;
+        gap: 15px;
         flex-direction: column;
 
-        input {
-          width: 300px;
-          padding: 8px;
-          border-radius: 5px;
-          border: 1px solid black;
+        .input-item {
+          display: flex;
+          gap: 4px;
+          font-size: 14px;
+          flex-direction: column;
+          input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid black;
+          }
         }
 
         button {
-          padding: 8px;
+          padding: 10px;
           border-radius: 5px;
           border: 1px solid black;
           cursor: pointer;
+
+          &:disabled {
+            cursor: not-allowed;
+          }
+        }
+      }
+
+      .other-options {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: gray;
+
+        a {
+          color: #3498db;
         }
       }
     }

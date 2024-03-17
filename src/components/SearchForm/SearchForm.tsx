@@ -23,7 +23,7 @@ export default function SearchForm() {
   const handleOnChange = (e: FormEvent<HTMLInputElement>) => {
     const newData = {
       ...data,
-      [e.currentTarget.name]: [e.currentTarget.value],
+      [e.currentTarget.name]: e.currentTarget.value,
     };
     setData(newData);
   };

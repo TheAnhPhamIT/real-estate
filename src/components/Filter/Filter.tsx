@@ -25,7 +25,7 @@ export default function Filter() {
   ) => {
     const newData = {
       ...data,
-      [e.currentTarget.name]: [e.currentTarget.value],
+      [e.currentTarget.name]: e.currentTarget.value,
     };
     setData(newData);
   };
