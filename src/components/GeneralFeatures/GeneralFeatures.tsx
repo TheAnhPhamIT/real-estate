@@ -20,7 +20,7 @@ function GeneralFeature({ name, icon, info }: generalFeatureProps) {
       </div>
 
       <div className="text-wrap">
-        <h6 className="title">{name}</h6>
+        <h6>{name}</h6>
         <span>{info}</span>
       </div>
     </div>
