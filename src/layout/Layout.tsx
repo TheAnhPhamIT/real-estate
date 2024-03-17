@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import "./layout.scss";
+import ChatBox from "../components/ChatBox/ChatBox";
 
 export default function Layout() {
   return (
     <div className="layout">
-      <div className="navbar">
+      <header className="navbar">
         <Navbar />
-      </div>
-      <div className="content">
+      </header>
+      <main className="content">
         <Outlet />
-      </div>
+      </main>
+      <ChatBox />
     </div>
   );
 }

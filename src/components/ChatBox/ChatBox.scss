@@ -1,0 +1,58 @@
+.chat-box {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+  height: 500px;
+  width: 400px;
+  z-index: 1000;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
+  -webkit-box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
+  -moz-box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
+
+  .header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: rgba(247, 193, 75, 0.5215686275);
+    height: 60px;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .user {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    button.close-btn {
+      background-color: transparent;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .content {
+    overflow: auto;
+  }
+
+  .footer {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: rgba(247, 193, 75, 0.5215686275);
+  }
+}
