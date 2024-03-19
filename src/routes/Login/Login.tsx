@@ -2,6 +2,8 @@ import { FormEvent, SyntheticEvent, useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { isValidEmail } from "../../utilities/validate";
+import { useUserUpdate } from "../../contexts/UserContext";
+import { userData } from "../../lib/dummyData";
 
 type loginFormData = {
   email: string;
@@ -15,23 +17,25 @@ export default function Login() {
     password: "",
   });
 
+  const updateUser = useUserUpdate();
+
   // have to replace with other option
-  const validateDataForm = (data: loginFormData): boolean => {
-    return isValidEmail(data.email) && data.password?.length > 0;
-  };
+  function validateDataForm(data: loginFormData): boolean {
+    return isValidEmail(data.email) && data.password.length > 0;
+  }
 
-  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
-    const newData = {
-      ...loginData,
-      [e.currentTarget.name]: e.currentTarget.value,
-    };
-    setLoginData(newData);
-  };
+  function handleInputChange(e: FormEvent<HTMLInputElement>) {
+    const { name, value } = e.currentTarget;
+    setLoginData((prev) => ({ ...prev, [name]: value }));
+  }
 
-  const onSubmit = (e: SyntheticEvent) => {
+  function onSubmit(e: SyntheticEvent) {
     e.preventDefault();
-    navigate("/");
-  };
+    if (updateUser) {
+      updateUser(userData);
+      navigate("/");
+    }
+  }
 
   const isValidData = validateDataForm(loginData);
 
@@ -74,7 +78,7 @@ export default function Login() {
             <button
               className="login-btn"
               onClick={onSubmit}
-              disabled={isValidData}
+              disabled={!isValidData}
             >
               Login
             </button>

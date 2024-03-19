@@ -137,3 +137,32 @@ export const userData = {
   name: "John Doe",
   img: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 };
+
+export const users = [
+  {
+    id: 2,
+    name: "Anna",
+    img: "https://images.pexels.com/photos/2598024/pexels-photo-2598024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    id: 3,
+    name: "David",
+    img: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    id: 4,
+    name: "Joshep",
+    img: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg",
+  },
+  {
+    id: 5,
+    name: "Kathy",
+    img: "https://images.pexels.com/photos/2218786/pexels-photo-2218786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+];
+
+export type User = {
+  id: number;
+  name: string;
+  img: string;
+};

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./PlaceDetail.scss";
 import { useEffect, useState } from "react";
 import { Place, listData, placeImages, userData } from "../../lib/dummyData";
@@ -10,6 +10,8 @@ import GeneralFeatures, {
 } from "../../components/GeneralFeatures/GeneralFeatures";
 import SizeFeatures from "../../components/SizeFeatures/SizeFeatures";
 import NearbyPlaces from "../../components/NearbyPlaces/NearbyPlaces";
+import { useUser } from "../../contexts/UserContext";
+import Modal from "../../components/Modal/Modal";
 
 // constants you should replace when write real app
 const generalFeatures: generalFeaturesProps = {
@@ -24,12 +26,31 @@ const owner = userData;
 export default function PlaceDetail() {
   const { placeId } = useParams();
   const [place, setPlace] = useState<Place | null>(null);
+  const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
+  const user = useUser();
 
   useEffect(() => {
     // load detail place if needed
     if (placeId === undefined) return;
     setPlace(listData.find((place) => place.id === +placeId) || null);
   }, []);
+
+  function handleSavePlace() {
+    if (!user) {
+      setOpenModal(true);
+    } else {
+      // call api to save the place to saved list
+    }
+  }
+
+  function handleChat() {
+    if (!user) {
+      setOpenModal(true);
+    } else {
+      // open box chat
+    }
+  }
 
   return (
     <div className="place-detail">
@@ -53,11 +74,11 @@ export default function PlaceDetail() {
                   <img src={owner.img} alt={owner.name} />
                   <figcaption>{owner.name}</figcaption>
                 </figure>
-                <button className="send-message-btn">
+                <button className="send-message-btn" onClick={handleChat}>
                   <img src="/assets/chat.png" alt="send message" />
                   <span>Send a message</span>
                 </button>
-                <button className="save-btn">
+                <button className="save-btn" onClick={handleSavePlace}>
                   <img src="/assets/save.png" alt="save place" />
                   <span>Save the place</span>
                 </button>
@@ -110,6 +131,17 @@ export default function PlaceDetail() {
           </div>
         </div>
       </div>
+      <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
+        <div className="modal-content">
+          <h3>You need to login first!!!</h3>
+          <p>To use this function you have to login</p>
+          <div className="btns">
+            <button className="login-btn" onClick={() => navigate("/login")}>
+              Go to Login page
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }

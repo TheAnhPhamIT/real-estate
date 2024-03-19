@@ -38,6 +38,10 @@
   transition: all 1s ease;
   transform: translateX(100%);
 
+  a {
+    cursor: pointer;
+  }
+
   @include sm {
     display: flex;
   }

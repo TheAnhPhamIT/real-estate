@@ -149,4 +149,39 @@
       }
     }
   }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      color: gray;
+    }
+
+    .btns {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-top: 15px;
+
+      button {
+        background-color: #3498db;
+        color: #fff;
+        font-size: 15px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
 }

@@ -5,9 +5,9 @@ type formData = {
   city: string;
   type: "" | "buy" | "rent";
   property: "" | "house" | "apartment" | "condo" | "land";
-  minPrice: number | undefined;
-  maxPrice: number | undefined;
-  bedroom: number | undefined;
+  minPrice: number | null;
+  maxPrice: number | null;
+  bedroom: number | null;
 };
 
 export default function Filter() {
@@ -15,19 +15,19 @@ export default function Filter() {
     city: "",
     type: "",
     property: "",
-    minPrice: undefined,
-    maxPrice: undefined,
-    bedroom: undefined,
+    minPrice: null,
+    maxPrice: null,
+    bedroom: null,
   });
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
   ) => {
-    const newData = {
-      ...data,
-      [e.currentTarget.name]: e.currentTarget.value,
-    };
-    setData(newData);
+    const { name, value } = e.currentTarget;
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const onSubmit = (e: SyntheticEvent) => {
@@ -50,7 +50,12 @@ export default function Filter() {
       <div className="inputs">
         <div className="input-item">
           <label htmlFor="type">Type</label>
-          <select name="type" id="type" onChange={handleInputChange}>
+          <select
+            name="type"
+            id="type"
+            value={data.type}
+            onChange={handleInputChange}
+          >
             <option value="">any</option>
             <option value="buy">Buy</option>
             <option value="rent">Rent</option>
@@ -58,7 +63,12 @@ export default function Filter() {
         </div>
         <div className="input-item">
           <label htmlFor="property">Property</label>
-          <select name="property" id="property" onChange={handleInputChange}>
+          <select
+            name="property"
+            id="property"
+            value={data.property}
+            onChange={handleInputChange}
+          >
             <option value="">any</option>
             <option value="house">House</option>
             <option value="apartment">Apartment</option>
@@ -75,6 +85,7 @@ export default function Filter() {
             name="minPrice"
             placeholder="any"
             onChange={handleInputChange}
+            value={data.minPrice!}
           />
         </div>
         <div className="input-item">
@@ -86,6 +97,7 @@ export default function Filter() {
             name="maxPrice"
             placeholder="any"
             onChange={handleInputChange}
+            value={data.maxPrice!}
           />
         </div>
         <div className="input-item">
@@ -97,6 +109,7 @@ export default function Filter() {
             name="bedroom"
             placeholder="any"
             onChange={handleInputChange}
+            value={data.bedroom!}
           />
         </div>
         <button className="search-btn" onClick={onSubmit}>

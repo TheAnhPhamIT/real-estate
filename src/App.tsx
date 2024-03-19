@@ -4,16 +4,43 @@ import Layout from "./layout/Layout";
 import Places from "./routes/Places/Places";
 import PlaceDetail from "./routes/PlaceDetail/PlaceDetail";
 import Login from "./routes/Login/Login";
+import { useEffect } from "react";
+import { UserProvider } from "./contexts/UserContext";
+import Notfound from "./routes/Notfound/Notfound";
+import MyProfile from "./routes/MyProfile/MyProfile";
+
+// if (typeof window !== 'undefined') {
+//   // Check if we're running in the browser.
+//   // Only runs once per app load
+//  checkAuthToken();
+//  loadDataFromLocalStorage();
+// }
+
+let didInit = false;
 
 function App() {
+  useEffect(() => {
+    if (!didInit) {
+      didInit = true;
+    }
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: "/login",
-      element: <Login />,
+      element: (
+        <UserProvider>
+          <Login />
+        </UserProvider>
+      ),
     },
     {
       path: "/",
-      element: <Layout />,
+      element: (
+        <UserProvider>
+          <Layout />
+        </UserProvider>
+      ),
       children: [
         {
           path: "/",
@@ -27,7 +54,15 @@ function App() {
           path: "/places/:placeId",
           element: <PlaceDetail />,
         },
+        {
+          path: "/my-profile",
+          element: <MyProfile />,
+        },
       ],
+    },
+    {
+      path: "*",
+      element: <Notfound />,
     },
   ]);
   return <RouterProvider router={router} />;

@@ -1,8 +1,18 @@
 import { useState } from "react";
 import "./NavMenu.scss";
+import { useUser, useUserUpdate } from "../../contexts/UserContext";
+import { useNavigate } from "react-router";
 
 export default function NavMenu() {
   const [activeMenu, setActiveMenu] = useState(false);
+  const user = useUser();
+  const updateUser = useUserUpdate();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    updateUser && updateUser(null);
+    navigate("/login");
+  }
   return (
     <>
       <button
@@ -24,12 +34,25 @@ export default function NavMenu() {
         <li className="menu-item">
           <a href="/">Agents</a>
         </li>
-        <li className="menu-item">
-          <a href="/">Sign in</a>
-        </li>
-        <li className="menu-item">
-          <a href="/">Sign up</a>
-        </li>
+        {user ? (
+          <>
+            <li className="menu-item">
+              <a href="/my-profile">My profile</a>
+            </li>
+            <li className="menu-item">
+              <a onClick={handleLogout}>Log out</a>
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="menu-item">
+              <a href="/login">Sign in</a>
+            </li>
+            <li className="menu-item">
+              <a href="/">Sign up</a>
+            </li>
+          </>
+        )}
       </ul>
     </>
   );
