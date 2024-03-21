@@ -9,6 +9,7 @@ import { UserProvider } from "./contexts/UserContext";
 import Notfound from "./routes/Notfound/Notfound";
 import MyProfile from "./routes/MyProfile/MyProfile";
 import { ChatsProvider } from "./contexts/ChatContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 // if (typeof window !== 'undefined') {
 //   // Check if we're running in the browser.
@@ -59,7 +60,11 @@ function App() {
         },
         {
           path: "/my-profile",
-          element: <MyProfile />,
+          element: (
+            <ProtectedRoute>
+              <MyProfile />
+            </ProtectedRoute>
+          ),
         },
       ],
     },
