@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Place } from "../../lib/dummyData";
 import "./PlaceCard.scss";
+import { useChatsUpdate } from "../../contexts/ChatContext";
 
 type placeCardProps = {
   place: Place;
@@ -8,10 +9,15 @@ type placeCardProps = {
 
 export default function PlaceCard({ place }: placeCardProps) {
   const navigate = useNavigate();
+  const { addChat } = useChatsUpdate();
 
-  const goToPlaceDetail = (placeId: number) => {
+  function goToPlaceDetail(placeId: number) {
     navigate(`/places/${placeId}`);
-  };
+  }
+
+  function onChat() {
+    addChat && addChat(place.userId);
+  }
   return (
     <div className="place-card">
       <div className="place-img">
@@ -45,7 +51,7 @@ export default function PlaceCard({ place }: placeCardProps) {
             <button className="save-btn">
               <img src="/assets/save.png" alt="save" />
             </button>
-            <button className="chat-btn">
+            <button className="chat-btn" onClick={onChat}>
               <img src="/assets/chat.png" alt="chat" />
             </button>
           </div>

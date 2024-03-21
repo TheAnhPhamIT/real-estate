@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { UserProvider } from "./contexts/UserContext";
 import Notfound from "./routes/Notfound/Notfound";
 import MyProfile from "./routes/MyProfile/MyProfile";
+import { ChatsProvider } from "./contexts/ChatContext";
 
 // if (typeof window !== 'undefined') {
 //   // Check if we're running in the browser.
@@ -38,7 +39,9 @@ function App() {
       path: "/",
       element: (
         <UserProvider>
-          <Layout />
+          <ChatsProvider>
+            <Layout />
+          </ChatsProvider>
         </UserProvider>
       ),
       children: [

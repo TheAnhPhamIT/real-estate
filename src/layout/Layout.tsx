@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import "./layout.scss";
-// import ChatBox from "../components/ChatBox/ChatBox";
+import ChatBoxes from "../components/ChatBoxes/ChatBoxes";
 
 export default function Layout() {
   return (
@@ -11,8 +11,8 @@ export default function Layout() {
       </header>
       <main className="content">
         <Outlet />
+        <ChatBoxes />
       </main>
-      {/* <ChatBox /> */}
     </div>
   );
 }

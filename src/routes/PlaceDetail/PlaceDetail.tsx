@@ -12,6 +12,7 @@ import SizeFeatures from "../../components/SizeFeatures/SizeFeatures";
 import NearbyPlaces from "../../components/NearbyPlaces/NearbyPlaces";
 import { useUser } from "../../contexts/UserContext";
 import Modal from "../../components/Modal/Modal";
+import { useChatsUpdate } from "../../contexts/ChatContext";
 
 // constants you should replace when write real app
 const generalFeatures: generalFeaturesProps = {
@@ -29,6 +30,7 @@ export default function PlaceDetail() {
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
   const user = useUser();
+  const { addChat } = useChatsUpdate();
 
   useEffect(() => {
     // load detail place if needed
@@ -49,6 +51,8 @@ export default function PlaceDetail() {
       setOpenModal(true);
     } else {
       // open box chat
+      if (!place?.userId) return;
+      addChat && addChat(place.userId);
     }
   }
 

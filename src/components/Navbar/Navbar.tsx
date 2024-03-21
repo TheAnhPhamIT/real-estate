@@ -1,4 +1,5 @@
 import { useUser } from "../../contexts/UserContext";
+import MessagesBox from "../MessagesBox/MessagesBox";
 import NavMenu from "../NavMenu/NavMenu";
 import "./Navbar.scss";
 
@@ -18,10 +19,15 @@ export default function Navbar() {
 
   if (user) {
     rightEle = (
-      <a href="/my-profile" className="nav-user">
-        <img src={user.img} alt={user.name} />
-        <span>{user.name}</span>
-      </a>
+      <div className="nav-user">
+        <a href="/my-profile">
+          <img src={user.img} alt={user.name} />
+          <span>{user.name}</span>
+        </a>
+        <div className="messages">
+          <MessagesBox />
+        </div>
+      </div>
     );
   }
   return (
