@@ -48,7 +48,7 @@
   position: absolute;
   max-height: 800px;
   overflow: hidden;
-  background-color: #fff;
+  background-color: var(--bg-color);
   top: 50px;
   z-index: 1001;
   box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
@@ -83,7 +83,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #fcf5f3;
+    background-color: var(--second-bg-color);
     border-radius: 10px;
   }
 
