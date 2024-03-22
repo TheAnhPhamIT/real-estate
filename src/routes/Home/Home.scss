@@ -19,7 +19,7 @@
 
     .wrapper {
       .title {
-        font-size: 55px;
+        font-size: 50px;
 
         @include md {
           font-size: 40px;
@@ -33,8 +33,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-right: 100px;
+      box-sizing: border-box;
+      padding-right: 80px;
       gap: 35px;
+
+      @include md {
+        padding-right: 30px;
+      }
 
       @include sm {
         padding-right: 0;
@@ -44,7 +49,7 @@
 
   .right {
     flex: 2;
-    background-color: #fcf5f3;
+    background-color: var(--second-bg-color);
     position: relative;
 
     @include md {

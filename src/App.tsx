@@ -10,6 +10,7 @@ import Notfound from "./routes/Notfound/Notfound";
 import MyProfile from "./routes/MyProfile/MyProfile";
 import { ChatsProvider } from "./contexts/ChatContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 // if (typeof window !== 'undefined') {
 //   // Check if we're running in the browser.
@@ -39,11 +40,13 @@ function App() {
     {
       path: "/",
       element: (
-        <UserProvider>
-          <ChatsProvider>
-            <Layout />
-          </ChatsProvider>
-        </UserProvider>
+        <ThemeProvider>
+          <UserProvider>
+            <ChatsProvider>
+              <Layout />
+            </ChatsProvider>
+          </UserProvider>
+        </ThemeProvider>
       ),
       children: [
         {

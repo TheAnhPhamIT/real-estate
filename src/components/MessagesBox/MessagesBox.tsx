@@ -47,7 +47,7 @@ export default function MessagesBox() {
     setShowMessages(false);
   }
   return (
-    <>
+    <div className="messages-container">
       <button
         className="message-icon"
         onClick={() => setShowMessages((prev) => !prev)}
@@ -73,6 +73,6 @@ export default function MessagesBox() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
