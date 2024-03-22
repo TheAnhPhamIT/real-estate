@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  color: var(--main-color);
 
   .unread-amount {
     position: absolute;
@@ -38,18 +39,22 @@
   }
 }
 
+.messages-container {
+  position: relative;
+}
+
 .messages-box-wrap {
   padding: 10px;
   position: absolute;
   max-height: 800px;
   overflow: hidden;
   background-color: #fff;
-  top: 45px;
-  z-index: 1000;
+  top: 50px;
+  z-index: 1001;
   box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
   border-radius: 10px;
   width: 350px;
-  right: 0;
+  right: 10px;
   transition: all 0.3s ease;
 
   .messages-wrap {

@@ -11,9 +11,7 @@ main.login-page {
     display: flex;
     border-radius: 20px;
     height: 400px;
-    box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
-    -webkit-box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
-    -moz-box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
+    box-shadow: -7px 7px 27px 0px var(--second-bg-color);
     overflow: hidden;
 
     .logo-container {
@@ -37,7 +35,7 @@ main.login-page {
     }
 
     .login-form {
-      background-color: #fcf5f3;
+      background-color: var(--second-bg-color);
       display: flex;
       justify-content: center;
       align-items: center;

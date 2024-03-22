@@ -53,6 +53,7 @@
               background-color: transparent;
               cursor: pointer;
               transition: all 0.3s ease;
+              color: var(--main-color);
 
               &:hover {
                 transform: scale(1.05);
@@ -115,7 +116,7 @@
 
   .right {
     flex: 2;
-    background-color: #fcf5f3;
+    background-color: var(--second-bg-color);
     height: 100%;
     overflow-y: auto;
 

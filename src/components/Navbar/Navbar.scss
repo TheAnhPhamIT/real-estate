@@ -62,24 +62,22 @@ nav {
 
   .right {
     flex: 2;
-    background-color: #fcf5f3;
+    background-color: var(--second-bg-color);
     height: 100%;
     display: flex;
     gap: 50px;
     justify-content: flex-end;
     align-items: center;
-    padding-right: 20px;
 
     .nav-user {
       display: flex;
       gap: 15px;
       align-items: center;
       position: relative;
+      padding-right: 15px;
 
-      .messages {
-        @include sm {
-          display: none;
-        }
+      @include sm {
+        display: none;
       }
 
       a {
@@ -108,7 +106,7 @@ nav {
       background-color: transparent;
     }
 
-    a {
+    a.nav-item {
       &:nth-child(2) {
         background-color: #fece51;
         padding: 12px 24px;

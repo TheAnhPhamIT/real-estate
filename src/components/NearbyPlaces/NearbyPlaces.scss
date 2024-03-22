@@ -27,7 +27,7 @@ figure.nearby-place {
 section.nearby-places {
   display: flex;
   justify-content: space-between;
-  background-color: #fff;
+  background-color: var(--bg-color);
   padding: 15px;
   border-radius: 10px;
 }
