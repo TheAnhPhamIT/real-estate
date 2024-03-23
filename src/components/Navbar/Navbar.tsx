@@ -5,19 +5,19 @@ import MessagesBox from "../MessagesBox/MessagesBox";
 import NavMenu from "../NavMenu/NavMenu";
 import ThemeButton from "../ThemeButton/ThemeButton";
 import "./Navbar.scss";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const user = useUser();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   let rightEle = (
     <>
-      <a className="nav-item" href="/login">
+      <a className="nav-item" onClick={() => navigate("/login")}>
         {t("nav.sign-in")}
       </a>
-      <a className="nav-item" href="/">
-        {t("nav.sign-in")}
-      </a>
+      <a className="nav-item">{t("nav.sign-in")}</a>
     </>
   );
 
@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="messages">
           <MessagesBox />
         </div>
-        <a href="/my-profile">
+        <a onClick={() => navigate("/my-profile")}>
           <img src={user.img} alt={user.name} />
           <span>{user.name}</span>
         </a>
@@ -43,22 +43,16 @@ export default function Navbar() {
   return (
     <nav>
       <div className="left">
-        <a href="/" className="logo nav-item">
+        <a onClick={() => navigate("/")} className="logo nav-item">
           <img src="/assets/logo.png" alt="logo" />
           <span>RealEstate</span>
         </a>
-        <a className="nav-item" href="/">
+        <a className="nav-item" onClick={() => navigate("/")}>
           {t("nav.home")}
         </a>
-        <a className="nav-item" href="/">
-          {t("nav.about")}
-        </a>
-        <a className="nav-item" href="/">
-          {t("nav.contact")}
-        </a>
-        <a className="nav-item" href="/">
-          {t("nav.agent")}
-        </a>
+        <a className="nav-item">{t("nav.about")}</a>
+        <a className="nav-item">{t("nav.contact")}</a>
+        <a className="nav-item">{t("nav.agent")}</a>
       </div>
       <div className="right">{rightEle}</div>
       <NavMenu />

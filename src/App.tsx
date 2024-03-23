@@ -6,7 +6,6 @@ import Notfound from "./routes/Notfound/Notfound";
 import { ChatsProvider } from "./contexts/ChatContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import "./i18n/i18n";
 import Loading from "./components/Loading/Loading";
 
 // if (typeof window !== 'undefined') {
