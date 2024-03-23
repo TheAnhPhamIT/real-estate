@@ -1,0 +1,12 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "agent": "Agents",
+    "my-profile": "My profile",
+    "sign-in": "Sign in",
+    "sign-up": "Sign up",
+    "log-out": "Log out"
+  }
+}

@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { useUser } from "../../contexts/UserContext";
+import LocaleSelectInput from "../LocaleSelectInput/LocaleSelectInput";
 import MessagesBox from "../MessagesBox/MessagesBox";
 import NavMenu from "../NavMenu/NavMenu";
 import ThemeButton from "../ThemeButton/ThemeButton";
@@ -6,14 +8,15 @@ import "./Navbar.scss";
 
 export default function Navbar() {
   const user = useUser();
+  const { t } = useTranslation();
 
   let rightEle = (
     <>
       <a className="nav-item" href="/login">
-        Sign in
+        {t("nav.sign-in")}
       </a>
       <a className="nav-item" href="/">
-        Sign up
+        {t("nav.sign-in")}
       </a>
     </>
   );
@@ -31,6 +34,9 @@ export default function Navbar() {
         <div className="theme-control">
           <ThemeButton />
         </div>
+        <div className="locale-control">
+          <LocaleSelectInput />
+        </div>
       </div>
     );
   }
@@ -42,16 +48,16 @@ export default function Navbar() {
           <span>RealEstate</span>
         </a>
         <a className="nav-item" href="/">
-          Home
+          {t("nav.home")}
         </a>
         <a className="nav-item" href="/">
-          About
+          {t("nav.about")}
         </a>
         <a className="nav-item" href="/">
-          Contact
+          {t("nav.contact")}
         </a>
         <a className="nav-item" href="/">
-          Agents
+          {t("nav.agent")}
         </a>
       </div>
       <div className="right">{rightEle}</div>
