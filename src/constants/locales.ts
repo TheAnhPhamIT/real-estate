@@ -3,6 +3,13 @@ type Locale = {
   code: string;
 };
 
+export enum Namespace {
+  Common = "common",
+  Validation = "validation",
+  Glossary = "glossary",
+  Home = "home",
+}
+
 export const LOCALES: Locale[] = [
   {
     label: "English",
@@ -12,4 +19,11 @@ export const LOCALES: Locale[] = [
     label: "Vietnam",
     code: "vi",
   },
+];
+
+export const NAMESPACES: Namespace[] = [
+  Namespace.Common,
+  Namespace.Glossary,
+  Namespace.Validation,
+  Namespace.Home,
 ];

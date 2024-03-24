@@ -16,7 +16,12 @@ export default function LocaleSelectInput() {
   }
 
   return (
-    <select name="select-locale" onChange={handleLocaleChange}>
+    <select
+      className="select-locale"
+      name="locale"
+      value={locale}
+      onChange={handleLocaleChange}
+    >
       {LOCALES.map((locale) => (
         <option key={locale.code} value={locale.code}>
           {locale.label}

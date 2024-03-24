@@ -15,9 +15,9 @@ export default function Navbar() {
   let rightEle = (
     <>
       <a className="nav-item" onClick={() => navigate("/login")}>
-        {t("nav.sign-in")}
+        {t("sign-in")}
       </a>
-      <a className="nav-item">{t("nav.sign-in")}</a>
+      <a className="nav-item">{t("sign-in")}</a>
     </>
   );
 
@@ -48,11 +48,11 @@ export default function Navbar() {
           <span>RealEstate</span>
         </a>
         <a className="nav-item" onClick={() => navigate("/")}>
-          {t("nav.home")}
+          {t("home")}
         </a>
-        <a className="nav-item">{t("nav.about")}</a>
-        <a className="nav-item">{t("nav.contact")}</a>
-        <a className="nav-item">{t("nav.agent")}</a>
+        <a className="nav-item">{t("about")}</a>
+        <a className="nav-item">{t("contact")}</a>
+        <a className="nav-item">{t("agent")}</a>
       </div>
       <div className="right">{rightEle}</div>
       <NavMenu />

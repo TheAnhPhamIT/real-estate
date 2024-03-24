@@ -1,0 +1,10 @@
+select.select-locale {
+  padding: 5px;
+  border-radius: 3px;
+  color: var(--main-color);
+  background-color: var(--bg-color);
+
+  &:focus {
+    outline: none;
+  }
+}
