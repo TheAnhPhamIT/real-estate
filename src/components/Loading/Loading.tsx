@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Loading.scss";
+import { useTranslation } from "react-i18next";
 
 export default function Loading() {
   const [progressVal, setProgressVal] = useState(10);
   const progressStep = 5;
+  const { t } = useTranslation();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -19,7 +21,7 @@ export default function Loading() {
   }, []);
   return (
     <section className="loading">
-      <h1>Loading...</h1>
+      <h1>{t("loading")}...</h1>
       <progress value={progressVal} max={100}></progress>
       <h4>{progressVal}%</h4>
     </section>

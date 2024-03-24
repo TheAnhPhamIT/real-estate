@@ -13,6 +13,7 @@ import NearbyPlaces from "../../components/NearbyPlaces/NearbyPlaces";
 import { useUser } from "../../contexts/UserContext";
 import Modal from "../../components/Modal/Modal";
 import { useChatsUpdate } from "../../contexts/ChatContext";
+import { useTranslation } from "react-i18next";
 
 // constants you should replace when write real app
 const generalFeatures: generalFeaturesProps = {
@@ -31,6 +32,7 @@ export default function PlaceDetail() {
   const navigate = useNavigate();
   const user = useUser();
   const { addChat } = useChatsUpdate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     // load detail place if needed
@@ -80,11 +82,11 @@ export default function PlaceDetail() {
                 </figure>
                 <button className="send-message-btn" onClick={handleChat}>
                   <img src="/assets/chat.png" alt="send message" />
-                  <span>Send a message</span>
+                  <span>{t("send-a-message")}</span>
                 </button>
                 <button className="save-btn" onClick={handleSavePlace}>
                   <img src="/assets/save.png" alt="save place" />
-                  <span>Save the place</span>
+                  <span>{t("save-the-place")}</span>
                 </button>
               </div>
             </div>
@@ -107,11 +109,11 @@ export default function PlaceDetail() {
       <div className="right">
         <div className="place-infos">
           <div className="info-item">
-            <h2 className="title">General</h2>
+            <h2 className="title">{t("general")}</h2>
             <GeneralFeatures {...generalFeatures} />
           </div>
           <div className="info-item">
-            <h2 className="title">Size</h2>
+            <h2 className="title">{t("size")}</h2>
             <SizeFeatures
               bathrooms={place?.bathroom}
               beds={place?.bedroom}
@@ -119,11 +121,11 @@ export default function PlaceDetail() {
             />
           </div>
           <div className="info-item">
-            <h2 className="title">Nearby Places</h2>
+            <h2 className="title">{t("nearby-places")}</h2>
             <NearbyPlaces busStop={300} restaurent={500} school={800} />
           </div>
           <div className="info-item">
-            <h2 className="title">Location</h2>
+            <h2 className="title">{t("location")}</h2>
             <div className="map-wrap">
               {place && (
                 <Map
