@@ -1,16 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./routes/Home/Home";
 import Layout from "./layout/Layout";
-import Places from "./routes/Places/Places";
-import PlaceDetail from "./routes/PlaceDetail/PlaceDetail";
-import Login from "./routes/Login/Login";
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { UserProvider } from "./contexts/UserContext";
 import Notfound from "./routes/Notfound/Notfound";
-import MyProfile from "./routes/MyProfile/MyProfile";
 import { ChatsProvider } from "./contexts/ChatContext";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import Loading from "./components/Loading/Loading";
 
 // if (typeof window !== 'undefined') {
 //   // Check if we're running in the browser.
@@ -28,25 +24,35 @@ function App() {
     }
   }, []);
 
+  const Home = lazy(() => import("./routes/Home/Home"));
+  const Places = lazy(() => import("./routes/Places/Places"));
+  const PlaceDetail = lazy(() => import("./routes/PlaceDetail/PlaceDetail"));
+  const MyProfile = lazy(() => import("./routes/MyProfile/MyProfile"));
+  const Login = lazy(() => import("./routes/Login/Login"));
+
   const router = createBrowserRouter([
     {
       path: "/login",
       element: (
-        <UserProvider>
-          <Login />
-        </UserProvider>
+        <Suspense fallback={<Loading />}>
+          <UserProvider>
+            <Login />
+          </UserProvider>
+        </Suspense>
       ),
     },
     {
       path: "/",
       element: (
-        <ThemeProvider>
-          <UserProvider>
-            <ChatsProvider>
-              <Layout />
-            </ChatsProvider>
-          </UserProvider>
-        </ThemeProvider>
+        <Suspense fallback={<Loading />}>
+          <ThemeProvider>
+            <UserProvider>
+              <ChatsProvider>
+                <Layout />
+              </ChatsProvider>
+            </UserProvider>
+          </ThemeProvider>
+        </Suspense>
       ),
       children: [
         {

@@ -1,43 +1,39 @@
-import { FormEvent, SyntheticEvent, useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
-import { isValidEmail } from "../../utilities/validate";
 import { useUserUpdate } from "../../contexts/UserContext";
 import { userData } from "../../lib/dummyData";
+import { FieldValues, useForm } from "react-hook-form";
 
-type loginFormData = {
-  email: string;
-  password: string;
-};
+// type loginFormData = {
+//   email: string;
+//   password: string;
+// };
+
+const emailPatt = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Login() {
   const navigate = useNavigate();
-  const [loginData, setLoginData] = useState<loginFormData>({
-    email: "",
-    password: "",
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  console.log(errors);
 
   const updateUser = useUserUpdate();
 
-  // have to replace with other option
-  function validateDataForm(data: loginFormData): boolean {
-    return isValidEmail(data.email) && data.password.length > 0;
+  function hasFormErrors(data: FieldValues) {
+    return Object.keys(data).length > 0;
   }
 
-  function handleInputChange(e: FormEvent<HTMLInputElement>) {
-    const { name, value } = e.currentTarget;
-    setLoginData((prev) => ({ ...prev, [name]: value }));
-  }
-
-  function onSubmit(e: SyntheticEvent) {
-    e.preventDefault();
+  function onSubmit(data: FieldValues) {
+    console.log(data);
+    if (hasFormErrors(errors)) return;
     if (updateUser) {
       updateUser(userData);
       navigate("/");
     }
   }
-
-  const isValidData = validateDataForm(loginData);
 
   return (
     <main className="login-page">
@@ -54,32 +50,31 @@ export default function Login() {
         </div>
         <div className="login-form">
           <h2>Login</h2>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="input-item">
               <label htmlFor="email">Email (required)</label>
               <input
                 type="email"
-                name="email"
-                value={loginData.email}
+                {...register("email", { required: true, pattern: emailPatt })}
                 placeholder="Enter your email"
-                onChange={handleInputChange}
               />
+              {errors.email?.type === "required" && (
+                <p>Please enter your email</p>
+              )}
+              {errors.email?.type === "pattern" && (
+                <p>Your email is not valid format</p>
+              )}
             </div>
             <div className="input-item">
               <label htmlFor="password">Password (required)</label>
               <input
                 type="password"
-                name="password"
-                value={loginData.password}
                 placeholder="Enter your password"
-                onChange={handleInputChange}
+                {...register("password", { required: true })}
               />
+              {errors.password && <p>Please enter your password</p>}
             </div>
-            <button
-              className="login-btn"
-              onClick={onSubmit}
-              disabled={!isValidData}
-            >
+            <button className="login-btn" type="submit">
               Login
             </button>
           </form>

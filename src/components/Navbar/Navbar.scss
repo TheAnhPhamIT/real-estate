@@ -8,6 +8,7 @@ nav {
 
   a.nav-item {
     transition: all 0.3s ease;
+    cursor: pointer;
 
     &:hover {
       scale: 1.05;
@@ -84,6 +85,7 @@ nav {
         display: flex;
         gap: 10px;
         align-items: center;
+        cursor: pointer;
 
         img {
           width: 50px;

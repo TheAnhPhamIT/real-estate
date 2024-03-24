@@ -1,6 +1,7 @@
 import { FormEvent, SyntheticEvent, useState } from "react";
 import "./SearchForm.scss";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 type searchType = "buy" | "rent";
 
@@ -18,6 +19,7 @@ export default function SearchForm() {
     maxPrice: undefined,
     minPrice: undefined,
   });
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleOnChange = (e: FormEvent<HTMLInputElement>) => {
@@ -48,13 +50,13 @@ export default function SearchForm() {
           onClick={(e: SyntheticEvent) => handleChangeType(e, "buy")}
           className={data.type === "buy" ? "type-btn active" : "type-btn"}
         >
-          Buy
+          {t("buy")}
         </button>
         <button
           onClick={(e: SyntheticEvent) => handleChangeType(e, "rent")}
           className={data.type === "rent" ? "type-btn active" : "type-btn"}
         >
-          Rent
+          {t("rent")}
         </button>
       </div>
       <div className="inputs-wrapper">
@@ -63,7 +65,7 @@ export default function SearchForm() {
           type="text"
           onChange={handleOnChange}
           value={data.city}
-          placeholder="City Location"
+          placeholder={t("city-location")}
         />
         <input
           type="number"
@@ -71,7 +73,7 @@ export default function SearchForm() {
           max={100000}
           name="maxPrice"
           value={data.maxPrice}
-          placeholder="Max Price"
+          placeholder={t("max-price")}
           onChange={handleOnChange}
         />
         <input
@@ -79,7 +81,7 @@ export default function SearchForm() {
           min={0}
           max={100000}
           name="minPrice"
-          placeholder="Min Price"
+          placeholder={t("min-price")}
           onChange={handleOnChange}
         />
         <button type="submit" className="submit-btn" onClick={onSearch}>
