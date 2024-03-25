@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import "./NearbyPlaces.scss";
 
 type nearbyPlacesProps = {
@@ -35,11 +36,12 @@ export default function NearbyPlaces({
   school,
   busStop,
 }: nearbyPlacesProps) {
+  const { t } = useTranslation();
   return (
     <section className="nearby-places">
       {school && (
         <NearybyPlace
-          placeName="School"
+          placeName={t("school")}
           unit="m"
           num={school}
           icon="/assets/school.png"
@@ -47,7 +49,7 @@ export default function NearbyPlaces({
       )}
       {busStop && (
         <NearybyPlace
-          placeName="Bus stop"
+          placeName={t("bus-stop")}
           unit="m"
           num={busStop}
           icon="/assets/bus.png"
@@ -55,7 +57,7 @@ export default function NearbyPlaces({
       )}
       {restaurent && (
         <NearybyPlace
-          placeName="Restaurent"
+          placeName={t("restaurant")}
           unit="m"
           num={restaurent}
           icon="/assets/restaurant.png"

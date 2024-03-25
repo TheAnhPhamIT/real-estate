@@ -15,7 +15,7 @@ export default function Home() {
           <SearchForm />
           <div className="stats">
             {generalStat.map((stat) => (
-              <StatCard key={stat.name} {...stat} />
+              <StatCard key={stat.name} stat={stat.stat} desc={t(stat.desc)} />
             ))}
           </div>
         </div>

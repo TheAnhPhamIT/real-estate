@@ -13,12 +13,18 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   let rightEle = (
-    <>
+    <div className="nav-right">
       <a className="nav-item" onClick={() => navigate("/login")}>
         {t("sign-in")}
       </a>
-      <a className="nav-item">{t("sign-in")}</a>
-    </>
+      <a className="nav-item">{t("sign-up")}</a>
+      <div className="theme-control">
+        <ThemeButton />
+      </div>
+      <div className="locale-control">
+        <LocaleSelectInput />
+      </div>
+    </div>
   );
 
   if (user) {

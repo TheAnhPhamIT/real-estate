@@ -1,0 +1,5 @@
+{
+  "email-required": "Please enter your email",
+  "email-pattern": "Your email is not valid format",
+  "password-required": "Please enter your password"
+}

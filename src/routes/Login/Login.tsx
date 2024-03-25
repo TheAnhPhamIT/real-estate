@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserUpdate } from "../../contexts/UserContext";
 import { userData } from "../../lib/dummyData";
 import { FieldValues, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 // type loginFormData = {
 //   email: string;
@@ -13,6 +14,7 @@ const emailPatt = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Login() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -46,41 +48,45 @@ export default function Login() {
             </figcaption>
           </figure>
 
-          <span>Find Real Estate & Get Your Dream Place</span>
+          <span>{t("home:title")}</span>
         </div>
         <div className="login-form">
-          <h2>Login</h2>
+          <h2>{t("login")}</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="input-item">
-              <label htmlFor="email">Email (required)</label>
+              <label htmlFor="email">
+                {t("email")} ({t("required")})
+              </label>
               <input
                 type="email"
                 {...register("email", { required: true, pattern: emailPatt })}
-                placeholder="Enter your email"
+                placeholder={t("enter-your-email")}
               />
               {errors.email?.type === "required" && (
-                <p>Please enter your email</p>
+                <p>{t("validation:email-required")}</p>
               )}
               {errors.email?.type === "pattern" && (
-                <p>Your email is not valid format</p>
+                <p>{t("validation:email-pattern")}</p>
               )}
             </div>
             <div className="input-item">
-              <label htmlFor="password">Password (required)</label>
+              <label htmlFor="password">
+                {t("password")} ({t("required")})
+              </label>
               <input
                 type="password"
-                placeholder="Enter your password"
+                placeholder={t("enter-your-password")}
                 {...register("password", { required: true })}
               />
-              {errors.password && <p>Please enter your password</p>}
+              {errors.password && <p>{t("validation:password-required")}</p>}
             </div>
             <button className="login-btn" type="submit">
-              Login
+              {t("login")}
             </button>
           </form>
           <div className="other-options">
             <p>
-              Don't have an account? <a href="#">Sign up</a>
+              {t("dont-have-account")} <a href="#">{t("sign-up")}</a>
             </p>
           </div>
         </div>
