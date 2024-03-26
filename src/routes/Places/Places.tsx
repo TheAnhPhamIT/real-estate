@@ -5,7 +5,7 @@ import { listData } from "../../lib/dummyData";
 import PlaceCard from "../../components/PlaceCard/PlaceCard";
 import { LatLngTuple } from "leaflet";
 import { useTranslation } from "react-i18next";
-import { api } from "../../services";
+// import { api } from "../../services";
 
 const data = listData;
 const position = [52.4797, -1.90269] as LatLngTuple;
@@ -14,7 +14,8 @@ export default function Places() {
   const { t } = useTranslation();
 
   async function onSearch(data: SearchFormData) {
-    const res = await api.get("/places", { params: data });
+    console.log(data);
+    // const res = await api.get("/places", { params: data });
     // update places list
   }
 
