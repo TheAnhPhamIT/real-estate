@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Place } from "../../lib/dummyData";
 import "./PlaceCard.scss";
 import { useChatsUpdate } from "../../contexts/ChatContext";
+import { useTranslation } from "react-i18next";
 
 type placeCardProps = {
   place: Place;
@@ -10,6 +11,7 @@ type placeCardProps = {
 export default function PlaceCard({ place }: placeCardProps) {
   const navigate = useNavigate();
   const { addChat } = useChatsUpdate();
+  const { t } = useTranslation();
 
   function goToPlaceDetail(placeId: number) {
     navigate(`/places/${placeId}`);
@@ -40,11 +42,15 @@ export default function PlaceCard({ place }: placeCardProps) {
           <div className="left">
             <div className="bedroom left-item">
               <img src="/assets/bed.png" alt="bed" />
-              <span>{place.bedroom} Bedroom</span>
+              <span>
+                {place.bedroom} {t("bedroom")}
+              </span>
             </div>
             <div className="bathroom left-item">
               <img src="/assets/bath.png" alt="bath" />
-              <span>{place.bathroom} Bathroom</span>
+              <span>
+                {place.bathroom} {t("bathroom")}
+              </span>
             </div>
           </div>
           <div className="right">

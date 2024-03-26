@@ -1,7 +1,7 @@
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
-import { useUserUpdate } from "../../contexts/UserContext";
-import { userData } from "../../lib/dummyData";
+import { useUserUpdate } from "@contexts/UserContext";
+import { userData } from "@/lib/dummyData";
 import { FieldValues, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 

@@ -1,18 +1,18 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "./PlaceDetail.scss";
 import { useEffect, useState } from "react";
-import { Place, listData, placeImages, userData } from "../../lib/dummyData";
-import ImageSlider from "../../components/ImageSlider/ImageSlider";
-import Map from "../../components/Map/Map";
+import { Place, listData, placeImages, userData } from "@/lib/dummyData";
+import ImageSlider from "@components/ImageSlider/ImageSlider";
+import Map from "@components/Map/Map";
 import { LatLngTuple } from "leaflet";
 import GeneralFeatures, {
   generalFeaturesProps,
-} from "../../components/GeneralFeatures/GeneralFeatures";
-import SizeFeatures from "../../components/SizeFeatures/SizeFeatures";
-import NearbyPlaces from "../../components/NearbyPlaces/NearbyPlaces";
-import { useUser } from "../../contexts/UserContext";
-import Modal from "../../components/Modal/Modal";
-import { useChatsUpdate } from "../../contexts/ChatContext";
+} from "@components/GeneralFeatures/GeneralFeatures";
+import SizeFeatures from "@components/SizeFeatures/SizeFeatures";
+import NearbyPlaces from "@components/NearbyPlaces/NearbyPlaces";
+import { useUser } from "@contexts/UserContext";
+import Modal from "@components/Modal/Modal";
+import { useChatsUpdate } from "@contexts/ChatContext";
 import { useTranslation } from "react-i18next";
 
 // constants you should replace when write real app

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
-import SearchForm from "../../components/SearchForm/SearchForm";
-import StatCard from "../../components/StatCard/StatCard";
-import { generalStat } from "../../constants/stats";
+import SearchForm from "@components/SearchForm/SearchForm";
+import StatCard from "@components/StatCard/StatCard";
+import { generalStat } from "@/constants";
 import "./Home.scss";
 
 export default function Home() {

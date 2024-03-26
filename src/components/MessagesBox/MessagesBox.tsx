@@ -4,6 +4,7 @@ import { faMessage } from "@fortawesome/free-regular-svg-icons";
 import { User, users } from "../../lib/dummyData";
 import { useState } from "react";
 import { useChatsUpdate } from "../../contexts/ChatContext";
+import { useTranslation } from "react-i18next";
 
 type MessageItemProps = {
   user: User;
@@ -40,6 +41,7 @@ function MessageItem({ user, lastMessage, onClick }: MessageItemProps) {
 export default function MessagesBox() {
   const [showMessages, setShowMessages] = useState(false);
   const { addChat } = useChatsUpdate();
+  const { t } = useTranslation();
   const unread = 4;
 
   function handleChatItemClick(userId: number) {
@@ -59,7 +61,7 @@ export default function MessagesBox() {
         <div className="messages-box-wrap">
           <div className="messages-wrap">
             <div className="header">
-              <h3>Messages</h3>
+              <h3>{t("messages")}</h3>
             </div>
             <div className="message-list">
               {users.map((user) => (

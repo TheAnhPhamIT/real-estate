@@ -8,6 +8,7 @@ export enum Namespace {
   Validation = "validation",
   Glossary = "glossary",
   Home = "home",
+  Placeholder = "placeholder",
 }
 
 export const LOCALES: Locale[] = [
@@ -26,4 +27,5 @@ export const NAMESPACES: Namespace[] = [
   Namespace.Glossary,
   Namespace.Validation,
   Namespace.Home,
+  Namespace.Placeholder,
 ];

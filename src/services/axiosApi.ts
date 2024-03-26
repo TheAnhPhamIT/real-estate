@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import { ENV, LocalStorageKey } from "../constants";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 const { API_URL } = ENV;
 const tokenKey = LocalStorageKey.Token;
@@ -13,11 +13,11 @@ api.interceptors.response.use(
     const { response } = error;
 
     if (response?.status === 500) {
-      const { t } = useTranslation();
-      let errorMessage = t("something-wrong");
+      // const { t } = useTranslation();
+      // let errorMessage = t("something-wrong");
 
       if (response.data?.message) {
-        errorMessage = t(response.data.message);
+        // errorMessage = t(response.data.message);
       }
       // show error Message
     }
@@ -55,10 +55,10 @@ authApi.interceptors.response.use(
     }
 
     if (response.status === 500) {
-      const { t } = useTranslation();
-      let errorMessage = t("something-wrong");
+      // const { t } = useTranslation();
+      // let errorMessage = t("something-wrong");
       if (response.data?.message) {
-        errorMessage = t(response.data.message);
+        // errorMessage = t(response.data.message);
       }
       // show error message
     }
