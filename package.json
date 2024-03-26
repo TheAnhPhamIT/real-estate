@@ -22,6 +22,7 @@
     "i18next": "^23.10.1",
     "i18next-http-backend": "^2.5.0",
     "leaflet": "^1.9.4",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.1",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@types/leaflet": "^1.9.8",
+    "@types/node": "^20.11.30",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",

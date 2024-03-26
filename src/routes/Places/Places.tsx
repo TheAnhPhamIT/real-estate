@@ -1,10 +1,10 @@
 import "./Places.scss";
-import Map from "../../components/Map/Map";
-import Filter, { SearchFormData } from "../../components/Filter/Filter";
-import { listData } from "../../lib/dummyData";
-import PlaceCard from "../../components/PlaceCard/PlaceCard";
+import Filter, { SearchFormData } from "@components/Filter/Filter";
+import { listData } from "@/lib/dummyData";
+import PlaceCard from "@components/PlaceCard/PlaceCard";
 import { LatLngTuple } from "leaflet";
 import { useTranslation } from "react-i18next";
+import Map from "@components/Map/Map";
 // import { api } from "../../services";
 
 const data = listData;
