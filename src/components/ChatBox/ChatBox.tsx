@@ -1,6 +1,7 @@
 import { ChangeEvent, SyntheticEvent, useEffect, useState } from "react";
 import { User, users } from "../../lib/dummyData";
 import "./ChatBox.scss";
+import { useTranslation } from "react-i18next";
 
 type chatData = {
   message: string;
@@ -14,6 +15,7 @@ type Props = {
 export default function ChatBox({ userId, onClose }: Props) {
   const [data, setData] = useState<chatData>({ message: "" });
   const [user, setUser] = useState<User | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     // create chat connection to userId
@@ -61,14 +63,14 @@ export default function ChatBox({ userId, onClose }: Props) {
             id="message"
             value={data.message}
             onChange={handleMessageInputChange}
-            placeholder="Typing something..."
+            placeholder={t("placeholder:type-something")}
           ></textarea>
           <button
             className="send-btn"
             onClick={onSubmitMessage}
             disabled={data.message.length <= 0}
           >
-            Send
+            {t("send")}
           </button>
         </form>
       </div>

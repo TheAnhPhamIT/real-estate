@@ -32,5 +32,16 @@
   "login": "Login",
   "dont-have-account": "Don't have an account?",
   "enter-your-email": "Enter your email",
-  "enter-your-password": "Enter your password"
+  "enter-your-password": "Enter your password",
+  "type": "Type",
+  "bedroom": "Bedroom",
+  "bathroom": "Bathroom",
+  "property": "Property",
+  "house": "House",
+  "apartment": "Apartment",
+  "condo": "Condo",
+  "land": "Land",
+  "any": "Any",
+  "messages": "Messages",
+  "send": "Send"
 }

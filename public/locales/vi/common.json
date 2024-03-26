@@ -32,5 +32,16 @@
   "login": "Đăng nhập",
   "dont-have-account": "Bạn chưa có tài khoản?",
   "enter-your-email": "Nhập email của bạn",
-  "enter-your-password": "Nhập mật khẩu bạn"
+  "enter-your-password": "Nhập mật khẩu bạn",
+  "type": "Loại",
+  "bedroom": "Phòng ngủ",
+  "bathroom": "Phòng tắm",
+  "property": "Bất động sản",
+  "house": "Nhà ở",
+  "apartment": "Căn hộ",
+  "condo": "Chung cư",
+  "land": "Đất",
+  "any": "Bất kỳ",
+  "messages": "Tin nhắn",
+  "send": "Gửi"
 }

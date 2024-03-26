@@ -1,16 +1,23 @@
 import "./Places.scss";
 import Map from "../../components/Map/Map";
-import Filter from "../../components/Filter/Filter";
+import Filter, { SearchFormData } from "../../components/Filter/Filter";
 import { listData } from "../../lib/dummyData";
 import PlaceCard from "../../components/PlaceCard/PlaceCard";
 import { LatLngTuple } from "leaflet";
 import { useTranslation } from "react-i18next";
+import { api } from "../../services";
 
 const data = listData;
 const position = [52.4797, -1.90269] as LatLngTuple;
 
 export default function Places() {
   const { t } = useTranslation();
+
+  async function onSearch(data: SearchFormData) {
+    const res = await api.get("/places", { params: data });
+    // update places list
+  }
+
   return (
     <div className="places">
       <div className="places-container">
@@ -20,7 +27,7 @@ export default function Places() {
               {t("search-results")} <b>London</b>
             </h1>
             <br />
-            <Filter />
+            <Filter onSubmit={onSearch} />
           </div>
           <div className="place-list">
             {data.map((place) => (
