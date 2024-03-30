@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="messages">
           <MessagesBox />
         </div>
-        <a onClick={() => navigate("/my-profile")}>
+        <a href="#">
           <img src={user.img} alt={user.name} />
           <span>{user.name}</span>
         </a>
@@ -56,9 +56,15 @@ export default function Navbar() {
         <a className="nav-item" onClick={() => navigate("/")}>
           {t("home")}
         </a>
-        <a className="nav-item">{t("about")}</a>
-        <a className="nav-item">{t("contact")}</a>
-        <a className="nav-item">{t("agent")}</a>
+        <a href="#" className="nav-item">
+          {t("about")}
+        </a>
+        <a href="#" className="nav-item">
+          {t("contact")}
+        </a>
+        <a href="#" className="nav-item">
+          {t("agent")}
+        </a>
       </div>
       <div className="right">{rightEle}</div>
       <NavMenu />
