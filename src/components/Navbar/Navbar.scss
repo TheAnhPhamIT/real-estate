@@ -1,120 +1,155 @@
 @import "../../responsive.scss";
 
 nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100px;
-
-  a.nav-item {
-    transition: all 0.3s ease;
-    cursor: pointer;
-
-    &:hover {
-      scale: 1.05;
-    }
-
-    @include sm {
-      display: none;
-    }
-  }
-
-  .left {
-    flex: 3;
     display: flex;
-    gap: 50px;
+    justify-content: space-around;
     align-items: center;
-
-    @include md {
-      gap: 30px;
-    }
-
-    .logo {
-      display: flex;
-      gap: 10px;
-      font-size: 20px;
-      align-items: center;
-
-      @include md {
-        span {
-          display: none;
-        }
-      }
-
-      @include sm {
-        font-size: 18px;
-        img {
-          width: 25px;
-        }
-        span {
-          display: initial;
-        }
-      }
-
-      img {
-        width: 30px;
-      }
-
-      span {
-        font-weight: bold;
-      }
-    }
-  }
-
-  .right {
-    flex: 2;
-    background-color: var(--second-bg-color);
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-
-    .nav-user,
-    .nav-right {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      position: relative;
-      padding-right: 15px;
-
-      @include sm {
-        display: none;
-      }
-
-      a {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        cursor: pointer;
-
-        img {
-          width: 50px;
-          height: 50px;
-          object-fit: cover;
-          border-radius: 50%;
-        }
-      }
-    }
-
-    @include md {
-      gap: 30px;
-    }
-
-    @include md {
-      background-color: transparent;
-    }
-
-    @include sm {
-      background-color: transparent;
-    }
+    height: 100px;
 
     a.nav-item {
-      &:nth-child(2) {
-        background-color: #fece51;
-        padding: 12px 24px;
-        border-radius: 10px;
-        color: #000;
-      }
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+            scale: 1.05;
+        }
+
+        @include sm {
+            display: none;
+        }
     }
-  }
+
+    .left {
+        flex: 3;
+        display: flex;
+        gap: 50px;
+        align-items: center;
+
+        @include md {
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            gap: 10px;
+            font-size: 20px;
+            align-items: center;
+
+            @include md {
+                span {
+                    display: none;
+                }
+            }
+
+            @include sm {
+                font-size: 18px;
+                img {
+                    width: 25px;
+                }
+                span {
+                    display: initial;
+                }
+            }
+
+            img {
+                width: 30px;
+            }
+
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .right {
+        flex: 2;
+        background-color: var(--second-bg-color);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .nav-user,
+        .nav-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            position: relative;
+            padding-right: 15px;
+
+            @include sm {
+                display: none;
+            }
+
+            .user-control {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                cursor: pointer;
+                position: relative;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+
+                .user-menu {
+                    position: absolute;
+                    top: 50px;
+                    left: 0;
+                    background-color: var(--bg-color);
+                    padding: 15px;
+                    list-style-type: none;
+                    color: var(--main-color);
+                    box-shadow: -12px 13px 49px -9px rgba(79, 69, 69, 0.73);
+                    border-radius: 5px;
+                    z-index: 1000;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.3s ease-in-out,
+                        visibility 0.3s ease-in-out;
+
+                    &.show {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    li + li {
+                        margin-top: 15px;
+                    }
+
+                    a {
+                        transition: transform 0.3s ease-in-out;
+                    }
+
+                    a:hover {
+                        transform: scale(0.9);
+                    }
+                }
+            }
+        }
+
+        @include md {
+            gap: 30px;
+        }
+
+        @include md {
+            background-color: transparent;
+        }
+
+        @include sm {
+            background-color: transparent;
+        }
+
+        a.nav-item {
+            &:nth-child(2) {
+                background-color: #fece51;
+                padding: 12px 24px;
+                border-radius: 10px;
+                color: #000;
+            }
+        }
+    }
 }
