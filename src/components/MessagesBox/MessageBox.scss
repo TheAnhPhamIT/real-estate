@@ -1,105 +1,112 @@
 .message-icon {
-  background-color: transparent;
-  border: none;
-  font-size: 18px;
-  position: relative;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: all 0.5s ease;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  color: var(--main-color);
-
-  .unread-amount {
-    position: absolute;
-    top: 5px;
-    right: 8px;
-    background-color: hsl(0, 82%, 38%);
-    color: #fff;
-    width: 15px;
-    height: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    width: 45px;
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
-    border-radius: 50%;
-  }
+    position: relative;
+    color: var(--main-color);
 
-  &:hover {
-    background-color: #34495e;
-    color: #fff;
-  }
+    .unread-amount {
+        position: absolute;
+        top: 5px;
+        right: 8px;
+        background-color: hsl(0, 82%, 38%);
+        color: #fff;
+        width: 15px;
+        height: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        border-radius: 50%;
+    }
 
-  &:active {
-    transform: scale(0.9);
-  }
+    &:hover {
+        background-color: #34495e;
+        color: #fff;
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
 }
 
 .messages-container {
-  position: relative;
+    position: relative;
 }
 
 .messages-box-wrap {
-  padding: 10px;
-  position: absolute;
-  max-height: 800px;
-  overflow: hidden;
-  background-color: var(--bg-color);
-  top: 50px;
-  z-index: 1001;
-  box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
-  border-radius: 10px;
-  width: 350px;
-  right: 10px;
-  transition: all 0.3s ease;
+    padding: 10px;
+    position: absolute;
+    max-height: 800px;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    top: 50px;
+    z-index: 1001;
+    box-shadow: -7px 7px 27px 0px rgba(107, 98, 98, 0.75);
+    border-radius: 10px;
+    width: 350px;
+    right: 10px;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
 
-  .messages-wrap {
-    display: flex;
-    flex-direction: column;
-
-    .header {
-      padding: 10px;
+    &.show {
+        opacity: 1;
+        visibility: visible;
     }
 
-    .message-list {
-      height: 100%;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
+    .messages-wrap {
+        display: flex;
+        flex-direction: column;
+
+        .header {
+            padding: 10px;
+        }
+
+        .message-list {
+            height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
     }
-  }
 }
 
 .message-item {
-  display: flex;
-  gap: 10px;
-  padding: 10px;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--second-bg-color);
-    border-radius: 10px;
-  }
-
-  .avatar {
-    img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  }
-
-  .text-container {
     display: flex;
-    gap: 5px;
-    justify-content: center;
-    flex-direction: column;
-  }
+    gap: 10px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--second-bg-color);
+        border-radius: 10px;
+    }
+
+    .avatar {
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .text-container {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        flex-direction: column;
+    }
 }

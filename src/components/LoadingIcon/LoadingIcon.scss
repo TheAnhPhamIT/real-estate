@@ -1,0 +1,32 @@
+.loading-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    .dot {
+        background-color: rgb(255, 255, 255);
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        animation: 0.8s ease-in-out infinite alternate animate-dot;
+    }
+
+    .dot:nth-child(1) {
+        animation-delay: -0.28s;
+    }
+
+    .dot:nth-child(2) {
+        animation-delay: -0.14s;
+    }
+}
+
+@keyframes animate-dot {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
